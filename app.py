@@ -6,7 +6,7 @@ app = Flask(__name__)
 env_config = os.getenv("PROD_APP_SETTINGS", "config.DevelopmentConfig")
 app.config.from_object(env_config)
 
-MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoiYW1hbnBvZGRhciIsImEiOiJjbGt0OTljeXowNXpuM3FsMG11dTRqYXZoIn0.X_JKUIoVDvdv87SF9fM-ww"
+MAPBOX_ACCESS_TOKEN = os.getenv('SECRET_KEY')
 
 def geocode_place(place):
     geocoding_url = f"https://api.mapbox.com/geocoding/v5/mapbox.places/{place}.json"
