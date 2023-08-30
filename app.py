@@ -1,7 +1,10 @@
 from flask import Flask, request, jsonify
 import requests
+import os
 
 app = Flask(__name__)
+env_config = os.getenv("PROD_APP_SETTINGS", "config.DevelopmentConfig")
+app.config.from_object(env_config)
 
 MAPBOX_ACCESS_TOKEN = "pk.eyJ1IjoiYW1hbnBvZGRhciIsImEiOiJjbGt0OTljeXowNXpuM3FsMG11dTRqYXZoIn0.X_JKUIoVDvdv87SF9fM-ww"
 
@@ -45,4 +48,4 @@ def get_distance():
     return jsonify({"error": "Unable to calculate distance"})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
