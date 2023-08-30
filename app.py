@@ -35,6 +35,10 @@ def calculate_distance(origin, destination):
             return distance
     return None
 
+@app.route('/')
+def hello_world():
+    return 'Hello, World!'
+
 @app.route('/calculate_distance', methods=['POST'])
 def get_distance():
     data = request.json
