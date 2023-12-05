@@ -44,7 +44,6 @@ def get_distance():
     data = request.json
     origin = data.get('origin')
     destination = data.get('destination')
-
     if origin and destination:
         distance = calculate_distance(origin, destination)
         if distance is not None:
